@@ -165,7 +165,9 @@ fetch_survey <- function(surveyID,
   # CONSTRUCT API CALL ----
 
   # add endpoint to root url
-  root_url <- append_root_url(Sys.getenv("QUALTRICS_BASE_URL"), "responseexports")
+  #root_url <- append_root_url(Sys.getenv("QUALTRICS_BASE_URL"), "responseexports")
+  root_url <- append_root_url(Sys.getenv("QUALTRICS_BASE_URL"), "export-responses")
+
   # Create raw JSON payload
   raw_payload <- create_raw_payload(
     surveyID = surveyID,
