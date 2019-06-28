@@ -194,14 +194,14 @@ fetch_survey <- function(surveyID,
   print(res)
 
   # Get id
-  if (is.null(res$result$id)) {
+  if (is.null(res$result$progressId)) {
     if (is.null(res$content[[1]]$id)) {
       stop("Something went wrong. Please re-run your query.")
     } else {
       ID <- res$content[[1]]$id
     }
   } else {
-    ID <- res$result$id
+    ID <- res$result$progressId
   } # NOTE This is not fail safe because ID can still be NULL
   # This is the url to use when checking the ID
   check_url <- paste0(root_url, ID)
