@@ -166,11 +166,15 @@ fetch_survey <- function(surveyID,
 
   # add endpoint to root url
   #root_url <- append_root_url(Sys.getenv("QUALTRICS_BASE_URL"), "responseexports")
-  root_url <- append_root_url(Sys.getenv("QUALTRICS_BASE_URL"), "export-responses")
+  root_url <- append_root_url(Sys.getenv("QUALTRICS_BASE_URL"), "surveys")
+  root_url<- paste0(root_url,surveyID,"/export-responses")
+  print(root_url)
+
 
   # Create raw JSON payload
   raw_payload <- create_raw_payload(
-    surveyID = surveyID,
+    #surveyID = surveyID,
+    format = 'csv',
     label = label,
     last_response = last_response,
     start_date = start_date,
