@@ -351,7 +351,7 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
   f <- tryCatch({
     check_url <- check_url[1:nchar(check_url)-36]
     print(check_url)
-    check_url <- paste0(check_url,requestId,"/file")
+    check_url <- paste0(check_url,"/",requestId,"/file")
     print(check_url)
     httr::GET(paste0(check_url, "/file"), httr::add_headers(headers))
   }, error = function(e) {
