@@ -317,6 +317,7 @@ qualtrics_api_request <- function(verb = c("GET", "POST"),
 
 
 download_qualtrics_export <- function(check_url, verbose = FALSE) {
+  print(check_url)
   # Construct header
   headers <- construct_header(Sys.getenv("QUALTRICS_API_KEY"))
   # Create a progress bar and monitor when export is ready
