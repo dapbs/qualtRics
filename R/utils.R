@@ -290,6 +290,9 @@ qualtrics_api_request <- function(verb = c("GET", "POST"),
   verb <- match.arg(verb)
   # Construct header
   headers <- construct_header(Sys.getenv("QUALTRICS_API_KEY"))
+
+  print(headers)
+
   # Send request to Qualtrics API
   res <- httr::VERB(verb,
                     url = url,

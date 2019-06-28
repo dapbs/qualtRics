@@ -190,6 +190,9 @@ fetch_survey <- function(surveyID,
 
   # POST request for download
   res <- qualtrics_api_request("POST", url = root_url, body = raw_payload)
+
+  print(res)
+
   # Get id
   if (is.null(res$result$id)) {
     if (is.null(res$content[[1]]$id)) {
