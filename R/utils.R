@@ -346,7 +346,7 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
   }
   check_url <- substr(check_url,1,nchar(check_url)-18)
   print(check_url)
-  check_url <- paste0(check_url,requestId,"/file")
+  check_url <- paste0(check_url,requestId)
   print(check_url)
   # Download file
   f <- tryCatch({
