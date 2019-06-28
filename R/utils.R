@@ -157,11 +157,11 @@ check_params <- function(...) {
 #'
 #' @param base_url Base URL for your institution (see
 #' \url{https://api.qualtrics.com/docs/root-url}
-#' @param type Either `"responseexports"` or `"surveys"`
+#' @param type Either `"export-responses"` or `"surveys"`
 #'
 #' @return Root URL, plus appended end point
 
-append_root_url <- function(base_url, type = c("responseexports", "surveys")) {
+append_root_url <- function(base_url, type = c("export-responses", "surveys")) {
   # match
   type <- match.arg(type)
   # create root url
