@@ -174,7 +174,6 @@ fetch_survey <- function(surveyID,
   # Create raw JSON payload
   raw_payload <- create_raw_payload(
     #surveyID = surveyID,
-    format = 'csv',
     label = label,
     last_response = last_response,
     start_date = start_date,

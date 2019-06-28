@@ -206,7 +206,7 @@ create_raw_payload <- function(surveyID,
                                include_questions = NULL) {
   paste0(
     '{"format": ', '"', "csv", '"',
-    ', "surveyId": ', '"', surveyID, '"',
+    #', "surveyId": ', '"', surveyID, '"',
     ifelse(
       is.null(last_response),
       "",
