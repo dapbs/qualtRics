@@ -184,6 +184,8 @@ fetch_survey <- function(surveyID,
     include_questions = include_questions
   )
 
+  print(raw_payload)
+
   # SEND POST REQUEST TO API ----
 
   # POST request for download
