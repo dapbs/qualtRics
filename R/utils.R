@@ -350,6 +350,8 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
   print(check_url)
   check_url <- paste0(check_url,requestId)
   print(check_url)
+  print(paste("progres:",progress))
+  print(paste("requestId:",requestId))
   # Download file
   f <- tryCatch({
     httr::GET(paste0(check_url, "/file"), httr::add_headers(headers))
