@@ -494,14 +494,3 @@ wrapper_mc <- function(data, question_meta) {
     )
   )
 }
-
-
-
-.rs.restartR()
-devtools::install_github("dapbs/qualtrics",ref = "export-responses")
-
-
-library(qualtRics)
-fetch_survey('SV_3pYbNvwa2q315yd',...=c(api_token='AyTxIBdtia6Uo8T30s5PqBAOdteH1P3RMQMHibfG',base_url='caleres.az1.qualtrics.com'))
-
-
