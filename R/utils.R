@@ -335,9 +335,8 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
     CU <- qualtrics_api_request("GET", url = check_url)
     progress <- CU$result$percentComplete
     requestId <- CU$meta$requestId
-    print(progress)
-    print(requestId)
-
+    print(paste("progres:",progress))
+    print(paste("requestId:",requestId))
     # Set progress
     if (verbose) {
       utils::setTxtProgressBar(pbar, progress)
@@ -486,3 +485,14 @@ wrapper_mc <- function(data, question_meta) {
     )
   )
 }
+
+
+
+.rs.restartR()
+devtools::install_github("dapbs/qualtrics",ref = "export-responses")
+
+
+library(qualtRics)
+fetch_survey('SV_3pYbNvwa2q315yd',...=c(api_token='AyTxIBdtia6Uo8T30s5PqBAOdteH1P3RMQMHibfG',base_url='caleres.az1.qualtrics.com'))
+
+
