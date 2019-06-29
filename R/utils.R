@@ -349,7 +349,7 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
     close(pbar)
   }
   check_url <- substr(check_url,1,nchar(check_url)-18)
-  print(check_url)
+  print(paste("check_url:",check_url))
   check_url <- paste0(check_url,requestId)
   print(check_url)
   print(paste("progress:",progress))
