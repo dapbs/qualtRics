@@ -360,6 +360,7 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
     httr::GET(paste0(check_url, "/file"), httr::add_headers(headers))
   })
   print(f)
+  print(str(f))
   # If content is test request, then load temp file (this is purely for testing)
   # httptest library didn't work the way it needed and somehow still called the API
   # leading to errors
