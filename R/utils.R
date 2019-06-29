@@ -290,10 +290,10 @@ qualtrics_api_request <- function(verb = c("GET", "POST"),
   verb <- match.arg(verb)
   # Construct header
   headers <- construct_header(Sys.getenv("QUALTRICS_API_KEY"))
-  print("DS")
-  print(paste("D","S"))
+  #print("DS")
+  #print(paste("D","S"))
 
-  print(headers)
+  #print(headers)
 
   # Send request to Qualtrics API
   res <- httr::VERB(verb,
@@ -319,7 +319,7 @@ qualtrics_api_request <- function(verb = c("GET", "POST"),
 
 
 download_qualtrics_export <- function(check_url, verbose = FALSE) {
-  print(check_url)
+  #print(check_url)
   # Construct header
   headers <- construct_header(Sys.getenv("QUALTRICS_API_KEY"))
   # Create a progress bar and monitor when export is ready
@@ -337,25 +337,25 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
     CU <- qualtrics_api_request("GET", url = check_url)
     progress <- CU$result$percentComplete
     requestId <- CU$result$fileId
-    print(paste("progress:",progress))
-    print(paste("fileId:",requestId))
+    #print(paste("progress:",progress))
+    #print(paste("fileId:",requestId))
     # Set progress
     if (verbose) {
       utils::setTxtProgressBar(pbar, progress)
     }
   }
-  print(paste("progress:",progress))
-  print(paste("fileId:",requestId))
+  #print(paste("progress:",progress))
+  #print(paste("fileId:",requestId))
   # Kill progress bar
   if (verbose) {
     close(pbar)
   }
   check_url <- substr(check_url,1,nchar(check_url)-18)
-  print(paste("check_url:",check_url))
+  #print(paste("check_url:",check_url))
   check_url <- paste0(check_url,requestId)
-  print(check_url)
-  print(paste("progress:",progress))
-  print(paste("fileId:",requestId))
+  #print(check_url)
+  #print(paste("progress:",progress))
+  #print(paste("fileId:",requestId))
   # Download file
   f <- tryCatch({
     httr::GET(paste0(check_url, "/file"), httr::add_headers(headers))
@@ -363,10 +363,10 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
     # Retry if first attempt fails
     httr::GET(paste0(check_url, "/file"), httr::add_headers(headers))
   })
-  print(paste("progress:",progress))
-  print(paste("fileId:",requestId))
-  print(f)
-  print(str(f))
+  #print(paste("progress:",progress))
+  #print(paste("fileId:",requestId))
+  #print(f)
+  #print(str(f))
   # If content is test request, then load temp file (this is purely for testing)
   # httptest library didn't work the way it needed and somehow still called the API
   # leading to errors
