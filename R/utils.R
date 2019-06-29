@@ -335,13 +335,15 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
     CU <- qualtrics_api_request("GET", url = check_url)
     progress <- CU$result$percentComplete
     requestId <- CU$result$fileId
-    print(paste("progres:",progress))
-    print(paste("requestId:",requestId))
+    print(paste("progress:",progress))
+    print(paste("fileId:",requestId))
     # Set progress
     if (verbose) {
       utils::setTxtProgressBar(pbar, progress)
     }
   }
+  print(paste("progress:",progress))
+  print(paste("fileId:",requestId))
   # Kill progress bar
   if (verbose) {
     close(pbar)
@@ -350,8 +352,8 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
   print(check_url)
   check_url <- paste0(check_url,requestId)
   print(check_url)
-  print(paste("progres:",progress))
-  print(paste("requestId:",requestId))
+  print(paste("progress:",progress))
+  print(paste("fileId:",requestId))
   # Download file
   f <- tryCatch({
     httr::GET(paste0(check_url, "/file"), httr::add_headers(headers))
@@ -359,6 +361,8 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
     # Retry if first attempt fails
     httr::GET(paste0(check_url, "/file"), httr::add_headers(headers))
   })
+  print(paste("progress:",progress))
+  print(paste("fileId:",requestId))
   print(f)
   print(str(f))
   # If content is test request, then load temp file (this is purely for testing)
