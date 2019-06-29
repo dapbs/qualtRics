@@ -290,6 +290,8 @@ qualtrics_api_request <- function(verb = c("GET", "POST"),
   verb <- match.arg(verb)
   # Construct header
   headers <- construct_header(Sys.getenv("QUALTRICS_API_KEY"))
+  print("DS")
+  print(paste("D","S"))
 
   print(headers)
 
