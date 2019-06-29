@@ -334,7 +334,7 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
     # Get percentage complete
     CU <- qualtrics_api_request("GET", url = check_url)
     progress <- CU$result$percentComplete
-    requestId <- CU$fileId
+    requestId <- CU$result$fileId
     print(paste("progres:",progress))
     print(paste("requestId:",requestId))
     # Set progress
