@@ -335,6 +335,8 @@ download_qualtrics_export <- function(check_url, verbose = FALSE) {
     CU <- qualtrics_api_request("GET", url = check_url)
     progress <- CU$result$percentComplete
     requestId <- CU$meta$requestId
+    print(progress)
+    print(rrequestId)
     # Set progress
     if (verbose) {
       utils::setTxtProgressBar(pbar, progress)
