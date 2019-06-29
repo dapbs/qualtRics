@@ -165,11 +165,7 @@ fetch_survey <- function(surveyID,
   # CONSTRUCT API CALL ----
 
   # add endpoint to root url
-  #root_url <- append_root_url(Sys.getenv("QUALTRICS_BASE_URL"), "responseexports")
-  root_url <- append_root_url(Sys.getenv("QUALTRICS_BASE_URL"), "surveys")
-  root_url<- paste0(root_url,surveyID,"/export-responses/")
-  print(root_url)
-
+  root_url <- paste0(append_root_url(Sys.getenv("QUALTRICS_BASE_URL"), "surveys"),surveyID,"/export-responses/")
 
   # Create raw JSON payload
   raw_payload <- create_raw_payload(
@@ -190,8 +186,6 @@ fetch_survey <- function(surveyID,
 
   # POST request for download
   res <- qualtrics_api_request("POST", url = root_url, body = raw_payload)
-
-  print(res)
 
   # Get id
   if (is.null(res$result$progressId)) {
